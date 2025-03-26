@@ -3,9 +3,11 @@ description: "A jekyll theme inspired by linux consoles for hackers, developers 
 baseurl: "/"
 url: "https://jinsburger.github.io/"
 
-#header_pages:
-
-
+header_pages:
+  - index.md
+  - peter.md
+  - about.md
+  - contact.md
 style: light 
 
 footer: 'follow us on <a href="https://twitter.com/">twitter</a>'
