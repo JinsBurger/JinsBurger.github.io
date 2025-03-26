@@ -8,6 +8,80 @@ categories:
 # Syntax highlighting
 This theme supports syntax respectively code highlighting. Below you find some examples of different programming languages.
 
+
+{% highlight rust %}
+// 암호화 함수
+fn encrypt(text: &str, shift: i16) -> String {
+    // 'A'와'Z'의 문자코드를 i16 타입으로 취득 --- (*1)
+    let code_a = 'A' as i16;
+    let code_z = 'Z' as i16;
+    // 결과를 대입할 변수를 선언
+    let mut result = String::new();
+    // 한 글자씩 치환 처리 --- (*2)
+    for ch in text.chars() {
+        // 문자코드를 변환
+        let mut code = ch as i16;
+        // A와Z 사이에 있는 값인가？ --- (*3)
+        if code_a <= code && code <= code_z {
+            // shift만큼 뒤의 문자로 치환 --- (*4)
+            code = (code - code_a + shift + 26) % 26 + code_a;
+        }
+        // 문자코드를 다시 문자로 변환 --- (*5)
+        result.push((code as u8) as char);
+    }
+    return result;
+}
+
+fn main() {
+    // 함수 호출
+    let enc = encrypt("I LOVE RUST.", 3);
+    let dec = encrypt(&enc, -3);
+    println!("{} => {}", enc, dec);
+}
+{% endhighlight %}
+
+
+{% highlight solidity %}
+pragma solidity ^0.8.7;
+
+import "@openzeppelin/contracts/utils/Address.sol";
+
+contract Staking {
+    using Address for address;
+
+    // Parameters
+    uint128 public constant VALIDATOR_THRESHOLD = 1 ether;
+
+    // Properties
+    address[] public _validators;
+
+    mapping(address => bool) public _addressToIsValidator;
+    mapping(address => uint256) public _addressToStakedAmount;
+    mapping(address => uint256) public _addressToValidatorIndex;
+    uint256 public _stakedAmount;
+    uint256 public _minimumNumValidators;
+    uint256 public _maximumNumValidators;
+
+    mapping(address => bytes) public _addressToBLSPublicKey;
+
+  function validators() public view returns (address[] memory) {
+        return _validators;
+    }
+
+    function validatorBLSPublicKeys() public view returns (bytes[] memory) {
+        bytes[] memory keys = new bytes[](_validators.length);
+
+        for (uint256 i = 0; i < _validators.length; i++) {
+            keys[i] = _addressToBLSPublicKey[_validators[i]];
+        }
+
+        return keys;
+    }
+
+}
+{% endhighlight %}
+
+
 <br />ruby:
 {% highlight ruby %}
 def foo
