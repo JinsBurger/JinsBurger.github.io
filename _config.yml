@@ -1,6 +1,6 @@
 title: 'https://jinsburger.github.io/'
 description: "A jekyll theme inspired by linux consoles for hackers, developers and script kiddies."
-baseurl: "/jekyll-theme-console-demo-light"
+baseurl: "/"
 url: "https://jinsburger.github.io/"
 
 #header_pages:
