@@ -51,7 +51,9 @@ end
 4\. Run `vagrant up`
     - The boot takes some time. 
     - Be patient even if a number of `ubuntu2204: Warning: Remote connection disconnect. Retrying...` are emitted.
-
-5\. In **VM**, run  `echo 'sudo mkdir /mnt/shared 2>/dev/null;sudo mount -t 9p -o trans=virtio shared /mnt/shared 2>/dev/null'  >> ~/.bashrc; source ~/.bashrc`
-
+5\. In **VM**, run  
+{% highlight bash %}
+echo 'sudo mkdir /mnt/shared 2>/dev/null; sudo mount -t 9p -o trans=virtio shared /mnt/shared 2>/dev/null' >> ~/.bashrc; 
+source ~/.bashrc`
+{% endhighlight %}
 6\. In **VM**, Now, the `/mnt/shared` links to [HOST PATH] which is written in **[3]** step.
