@@ -9,10 +9,9 @@ header_pages:
   - contact.md
 style: light 
 
-header: 123
 footer: © 2025 Jinheon Lee
 
 # Build settings
 markdown: kramdown
-theme: jekyll-theme-console
+#theme: jekyll-theme-console
 remote_theme: b2a3e8/jekyll-theme-console
