@@ -1,9 +1,12 @@
 ---
 layout: page
 title: /CV
-permalink: http://howdays.kr/CV.pdf
+permalink: /cv/
 ---
 
+<script>
+    location.href = "http://howdays.kr/CV.pdf";
+</script>
 # jekyll-theme-console
 
 A jekyll theme with inspiration from linux consoles for hackers, developers and script kiddies.
