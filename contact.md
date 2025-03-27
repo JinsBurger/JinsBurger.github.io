@@ -4,13 +4,8 @@ layout: page
 permalink: /contact
 ---
 
-# Get in touch?
 
-<form>
-  <input type="text" id="name" name="name" placeholder="name:" autocomplete="off">
-  <input type="text" id="email" name="email" placeholder="email:" autocomplete="off">
-  <textarea rows="5" id="message" name="message" placeholder="message:" autocomplete="off"></textarea>
-  <input type="submit" value="[ submit ]">
-</form>
-
-<br /><br />(This is a demo site, the form doesn't work - If you want to implement a form on your site, you need an external service)
+X: <a href="https://x.com/howdays1">@howdays1</a>
+LinkedIn: <a href="https://www.linkedin.com/in/jinheon-lee-4319b2249/">linkedin.com/in/jinheon-lee-4319b2249</a>
+Github: <a href="https://github.com/JinsBurger?tab=repositories">github.com/JinsBurger</a>
+Main Site: <a href="http://howdays.kr">http://howdays.kr</a>
