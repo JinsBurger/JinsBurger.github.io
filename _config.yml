@@ -5,12 +5,11 @@ url: "https://howdays.blog/"
 
 header_pages:
   - index.md
-  - peter.md
   - about.md
   - contact.md
 style: light 
 
-footer: 'follow us on <a href="https://twitter.com/">twitter</a>'
+footer: 'follow us on <a href="https://x.com/howdays1">X</a>'
 
 # Build settings
 markdown: kramdown
