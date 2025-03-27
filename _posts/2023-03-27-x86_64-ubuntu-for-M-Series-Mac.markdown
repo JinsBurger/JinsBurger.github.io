@@ -8,8 +8,8 @@ categories:
 # Running x86_64 Ubuntu on Apple Silicon (M-Series) MacBooks
 
 Pwners who are using ARM based Macbooks have two ways to run ubuntu which runs on x86_64 (Amd64) architecture.
-1. Rosetta
-2. Other emulation
+  1\. Rosetta
+  2\. Other emulation
 
 In the case of `Rosetta`, for example, Docker uses it to run images on x86_64. However, due to the characteristics of Docker, this may not be a perfect way to play pwnable. You can easily find it out by running `cat /proc/self/maps` in Docker.
 
