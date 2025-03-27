@@ -1,5 +1,5 @@
 title: 'https://jinsburger.github.io/'
-description: "A jekyll theme inspired by linux consoles for hackers, developers and script kiddies."
+description: "Jinheon Lee (a.k.a howdays)'s Blog"
 baseurl: "/"
 url: "https://howdays.blog/"
 
@@ -9,9 +9,10 @@ header_pages:
   - contact.md
 style: light 
 
-footer: 'follow us on <a href="https://x.com/howdays1">X</a>'
+header: 123
+footer: © 2025 Jinheon Lee
 
 # Build settings
 markdown: kramdown
-#theme: jekyll-theme-console
+theme: jekyll-theme-console
 remote_theme: b2a3e8/jekyll-theme-console
