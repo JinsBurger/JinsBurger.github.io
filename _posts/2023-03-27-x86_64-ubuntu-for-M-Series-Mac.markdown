@@ -28,6 +28,7 @@ Because of this issue, I finally chose vagrant which I used to run on x86_64 bef
 2. Find and copy image box name in [https://portal.cloud.hashicorp.com/vagrant/discover](https://portal.cloud.hashicorp.com/vagrant/discover)
     - For example, ubuntu 24.04 is `generic/ubuntu2404"`
 3. Copy and modify the below script and save as `Vagrantfile` into the `[dirname]`
+
 ```bash
 BOX_IMAGE = "[BOX NAME]" # TODO, Boxname
 HOST_NAME = "[HOST NAME]" # TODO, HOSTNAME
