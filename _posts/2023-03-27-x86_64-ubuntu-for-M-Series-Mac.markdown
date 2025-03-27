@@ -20,16 +20,16 @@ Because of this issue, I finally chose vagrant which I used to run on x86_64 bef
 ## Installment
 
 1. Run `brew install vagrant`
-2. Run `vagrant plugin install vagrant-vbguest\nvagrant plugin install vagrant-qemu`
+2. Run `vagrant plugin install vagrant-vbguest; vagrant plugin install vagrant-qemu`
 
 ## Create a new OS & Config shared folder
 
-1. Run `mkdir [dirname] ; cd [dirname]`
-2. Find and copy image box name in [https://portal.cloud.hashicorp.com/vagrant/discover](https://portal.cloud.hashicorp.com/vagrant/discover)
+1\. Run `mkdir [dirname] ; cd [dirname]`
+2\. Find and copy image box name in [https://portal.cloud.hashicorp.com/vagrant/discover](https://portal.cloud.hashicorp.com/vagrant/discover)
     - For example, ubuntu 24.04 is `generic/ubuntu2404"`
-3. Copy and modify the below script and save as `Vagrantfile` into the `[dirname]`
+3\. Copy and modify the below script and save as `Vagrantfile` into the `[dirname]`
 
-```bash
+{% highlight bash %}
 BOX_IMAGE = "[BOX NAME]" # TODO, Boxname
 HOST_NAME = "[HOST NAME]" # TODO, HOSTNAME
 
@@ -47,9 +47,11 @@ Vagrant.configure("2") do |config|
    end
  end
 end
-```
+{% endhighlight %}
+4\. Run `vagrant up`
+    - The boot takes some time. 
+    - Be patient even if a number of `ubuntu2204: Warning: Remote connection disconnect. Retrying...` are emitted.
 
-4. Run `vagrant up`
-    - The boot takes some time. Be patient even if a number of `ubuntu2204: Warning: Remote connection disconnect. Retrying...` are emitted.
-5. In **VM**, run `echo 'sudo mkdir /mnt/shared 2>/dev/null;sudo mount -t 9p -o trans=virtio shared /mnt/shared 2>/dev/null'  >> ~/.bashrc; source ~/.bashrc`.
-6. In **VM**, Now, the `/mnt/shared` links to [HOST PATH] which is written in **[3]** step.
+5\. In **VM**, run  `echo 'sudo mkdir /mnt/shared 2>/dev/null;sudo mount -t 9p -o trans=virtio shared /mnt/shared 2>/dev/null'  >> ~/.bashrc; source ~/.bashrc`
+
+6\. In **VM**, Now, the `/mnt/shared` links to [HOST PATH] which is written in **[3]** step.
