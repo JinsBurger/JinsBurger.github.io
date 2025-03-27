@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Running x86_64 Ubuntu on Apple Silicon (M-Series) MacBooks"
-date:   2023-03-27 09:00:00 +0900
+date:   2025-03-27 09:00:00 +0900
 categories:
 ---
 
