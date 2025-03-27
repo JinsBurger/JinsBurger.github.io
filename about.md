@@ -1,7 +1,7 @@
 ---
 layout: page
-title: /About
-permalink: /about/
+title: /CV
+permalink: http://howdays.kr/CV.pdf
 ---
 
 # jekyll-theme-console
