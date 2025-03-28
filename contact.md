@@ -11,3 +11,4 @@ Email 2: <a href="mailto:howzinuns@gmail.com">howzinuns@gmail.com</a>
 X: <a href="https://x.com/howdays1">@howdays1</a>
 LinkedIn: <a href="https://www.linkedin.com/in/jinheon-lee-4319b2249/">linkedin.com/in/jinheon-lee-4319b2249</a>
 Github: <a href="https://github.com/JinsBurger?tab=repositories">github.com/JinsBurger</a>
+Notion: <a href="https://rune-gymnast-02f.notion.site/Jinheon-Lee-14574f68cd7a80788053f8119aa2dd2b">Jinheon-Lee</a>
