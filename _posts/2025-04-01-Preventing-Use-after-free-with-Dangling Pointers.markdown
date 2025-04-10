@@ -71,7 +71,7 @@ Design
 **1:** 자동으로 pointer와 memory objects 과의 관계 추적
 **2:** free 된 memory objects를 가르키는 pointer를 nullify.
 
-<img  width="100%" src="/assets/2025-04-01-Preventing-Use-after-free-with-Dangling Pointers/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2025-03-30_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_3.07.58.png"/>
+<img  width="100%" src="/assets/2025-04-01-Preventing-Use-after-free-with-Dangling Pointers/pic_3.07.58.png"/>
 
 컴파일 단에서 DANGNULL를 같이 실행해줘야함.
 
@@ -84,7 +84,7 @@ Design
 
 ### Static Instrumentation
 
-<img width="100%" src="/assets/2025-04-01-Preventing-Use-after-free-with-Dangling Pointers/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2025-03-30_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_3.19.52.png"/>
+<img width="100%" src="/assets/2025-04-01-Preventing-Use-after-free-with-Dangling Pointers/pic_3.19.52.png"/>
 
 LLVM IR [24] level and is designed to achieve one primary goal: to monitor pointer assignments to maintain the point-to relations.
 
@@ -100,7 +100,7 @@ LLVM IR [24] level and is designed to achieve one primary goal: to monitor point
 
 **Shadow Object Tree**
 
-<img width="100%" src="/assets/2025-04-01-Preventing-Use-after-free-with-Dangling Pointers/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2025-03-30_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_4.11.19.png"/>
+<img width="100%" src="/assets/2025-04-01-Preventing-Use-after-free-with-Dangling Pointers/pic_4.11.19.png"/>
 
 `shadowObjTree`  는 hierarchical 구조로 relationship 구성.
 
@@ -116,11 +116,11 @@ RBTree 안에 SubTree:
 
 **Runtime Operations and Nullification**
 
-<img width="100%" src="/assets/2025-04-01-Preventing-Use-after-free-with-Dangling Pointers/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2025-03-30_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_5.00.56.png"/>
+<img width="100%" src="/assets/2025-04-01-Preventing-Use-after-free-with-Dangling Pointers/pic_5.00.56.png"/>
 
 Runtime Library는 할당/해제를 각각 `allocObj`와 `freeObj`로 교체. Static Analysis 과정에서 추가된  `trace` 도 있음.
 
-<img width="100%"  src="/assets/2025-04-01-Preventing-Use-after-free-with-Dangling Pointers/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2025-03-30_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_5.02.37.png"/>
+<img width="100%"  src="/assets/2025-04-01-Preventing-Use-after-free-with-Dangling Pointers/pic_5.02.37.png"/>
 
 `allocObj` 는 할당 후에, shadowObject Tree에 넣음. 
 
@@ -158,7 +158,7 @@ evaluation environment
 
 Chromium browser 에서 테스트
 
-<img width="100%" src="/assets/2025-04-01-Preventing-Use-after-free-with-Dangling Pointers/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2025-03-30_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_9.31.33.png"/>
+<img width="100%" src="/assets/2025-04-01-Preventing-Use-after-free-with-Dangling Pointers/pic_9.31.33.png"/>
 
 No-Nullify 가 적용 됐을 때, SEGFAULT가 발생했지만, 6개가 유의미한 주소였기에 공격 가능성이 있었다.
 
@@ -170,27 +170,27 @@ mark (✓) 는 DANGNULL 했을 때,  CHROME 에서 safe-deference 하기 전에 
 
 **B. Instrumentation**
 
-<img width="100%" src="/assets/2025-04-01-Preventing-Use-after-free-with-Dangling Pointers/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2025-03-30_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_9.40.24.png"/>
+<img width="100%" src="/assets/2025-04-01-Preventing-Use-after-free-with-Dangling Pointers/pic_9.40.24.png"/>
 
 SPEC CPU 2006 Benchmark를 보면, 프로그램에 삽입된 instructions들은 전체 프로그램의  instructions 과 어떻게 구현되었는 지에 대해서도 영향을 받는다. mcf와  lbm을 비교하면 mcf가 instructions 개수는 작지만, 삽인된 instructions 들은  10배 넘는다.
 
-<img width="100%" src="/assets/2025-04-01-Preventing-Use-after-free-with-Dangling Pointers/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2025-03-30_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_9.46.56.png"/>
+<img width="100%" src="/assets/2025-04-01-Preventing-Use-after-free-with-Dangling Pointers/pic_9.46.56.png"/>
 
 전체 프로그램의 1% 정도  instructions가 삽입 됐으며 파일 크기는 0.5% 늘어났다.
 
 **C. Runtime Overheads**
 
-<img width="100%" src="/assets/2025-04-01-Preventing-Use-after-free-with-Dangling Pointers/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2025-03-30_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_9.48.55.png"/>
+<img width="100%" src="/assets/2025-04-01-Preventing-Use-after-free-with-Dangling Pointers/pic_9.48.55.png"/>
 
 평균 적으로는 80% 늘어났으며, `povray` 같은 경우는 포인터의 개수가 많아 실행시간 270% 증가 및 메모리 오버헤드도 213% 늘어났다. 포인터 개수가 작은 `h264ref` 은 1% 실행시간 증가 및 472% 메모리 오버헤드 증가했다.
 
-<img width="100%" src="/assets/2025-04-01-Preventing-Use-after-free-with-Dangling Pointers/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2025-03-30_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_9.52.13.png"/>
+<img width="100%" src="/assets/2025-04-01-Preventing-Use-after-free-with-Dangling Pointers/pic_9.52.13.png"/>
 
 7개의 브라우저 테스트 했을 때, Javascript 엔진에서는 평균 4.8% averaged overhead 증가했다. 대부분 JIT으로 컴파일 되기 때문에, 해당 부분은 DANGNULL의 범위를 벗어나서 별로 안늘어났다.  렌더링은 53.1% 정도 렌더링 computations가 증가했다.
 
 Alexa top 100 websites 페이지의 오버헤드도 측정해봤을 때, 평균 7% 로딩 시간이 걸렸다.  2326ms 의 317.6ms 표준 편차로 걸렸으며 일반 크롬은 2165 ms 의 377.9m 표준 편차가 걸린다.
 
-<img width="100%" src="/assets/2025-04-01-Preventing-Use-after-free-with-Dangling Pointers/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2025-03-30_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_10.06.53.png"/>
+<img width="100%" src="/assets/2025-04-01-Preventing-Use-after-free-with-Dangling Pointers/pic_10.06.53.png"/>
 
 위 인기 사이트를 봤을 때, 특히 유튜브의 경우 많은 이미지가 렌더링이 되기 때문에 32.8% 의 로딩 시간이 걸렸다.
 
