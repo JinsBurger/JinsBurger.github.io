@@ -9,11 +9,11 @@ header_pages:
   - contact.md
 style: light 
 
-footer: © 2025 Jinheon Lee
+footer: <script async src="https://www.googletagmanager.com/gtag/js?id=G-6NYR8JYNJ2"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-6NYR8JYNJ2');</script>© 2025 Jinheon Lee
 
 # Build settings
 markdown: kramdown
-#theme: jekyll-theme-console
+$theme: jekyll-theme-console
 remote_theme: b2a3e8/jekyll-theme-console
 
 analytics:
