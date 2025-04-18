@@ -13,7 +13,7 @@ footer: <script async src="https://www.googletagmanager.com/gtag/js?id=G-6NYR8JY
 
 # Build settings
 markdown: kramdown
-$theme: jekyll-theme-console
+#theme: jekyll-theme-console
 remote_theme: b2a3e8/jekyll-theme-console
 
 analytics:
