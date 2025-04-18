@@ -16,9 +16,4 @@ markdown: kramdown
 #theme: jekyll-theme-console
 remote_theme: b2a3e8/jekyll-theme-console
 
-analytics:
-  provider               : "google-gtag" 
-                          # false (default), "google", "google-universal", "google-gtag", "custom"
-  google:
-    tracking_id          : "G-6NYR8JYNJ2"
-    anonymize_ip         : # true, false (default)
+google_analytics: "G-6NYR8JYNJ2"
